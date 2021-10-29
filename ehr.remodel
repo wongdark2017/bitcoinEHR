@@ -1,0 +1,245 @@
+UseCaseModel EHR {
+
+	UC::login definedBySSD(LoginSSD) relatedService(LoginService)
+	UC::transferData definedBySSD(TransferDataSSD) relatedService(TransferDataService)
+	UC::transferRequest definedBySSD(TransferRequestSSD) relatedService(TransferRequestService)
+	UC::addInformation definedBySSD(AddInformationSSD) relatedService(AddInformationService)
+
+	Actor Patient {
+		login
+		addInformation
+	}
+
+	Actor Doctor {
+		login
+		addInformation
+		transferData
+		transferRequest
+	}
+
+	Interaction LoginSSD {
+
+		[Participants: Patient Doctor LoginService]
+
+		CallMessage::LoginSSDCallMessage1(inputUsername LoginSSDCallMessage1SendingEnd -> LoginSSDExecution1StartEnd)
+		ReturnMessage::LoginSSDCallMessage1Return(LoginSSDExecution1FinishEnd -> LoginSSDCallMessage1ReturnReceivingEnd LoginSSDCallMessage1)
+		CallMessage::LoginSSDCallMessage3(inputPassword LoginSSDCallMessage3SendingEnd -> LoginSSDExecution2StartEnd)
+		ReturnMessage::LoginSSDCallMessage3Return(LoginSSDExecution2FinishEnd -> LoginSSDCallMessage3ReturnReceivingEnd LoginSSDCallMessage3)
+
+		Execution::LoginSSDExecution1(LoginService LoginSSDExecution1StartEnd LoginSSDExecution1FinishEnd)
+		Execution::LoginSSDExecution2(LoginService LoginSSDExecution2StartEnd LoginSSDExecution2FinishEnd)
+
+		MessageEnd::LoginSSDCallMessage1SendingEnd(Patient LoginSSDCallMessage1)
+		ExecutionEnd::LoginSSDExecution1StartEnd(LoginService LoginSSDExecution1)
+		ExecutionEnd::LoginSSDExecution1FinishEnd(LoginService LoginSSDExecution1)
+		MessageEnd::LoginSSDCallMessage1ReturnReceivingEnd(Patient LoginSSDCallMessage1Return)
+		MessageEnd::LoginSSDCallMessage3SendingEnd(Patient LoginSSDCallMessage3)
+		ExecutionEnd::LoginSSDExecution2StartEnd(LoginService LoginSSDExecution2)
+		ExecutionEnd::LoginSSDExecution2FinishEnd(LoginService LoginSSDExecution2)
+		MessageEnd::LoginSSDCallMessage3ReturnReceivingEnd(Patient LoginSSDCallMessage3Return)
+
+	}
+
+	Interaction AddInformationSSD {
+
+		[Participants: Patient Doctor AddInformationService]
+
+		CallMessage::AddInformationSSDCallMessage1(chooseRole AddInformationSSDCallMessage1SendingEnd -> AddInformationSSDExecution1StartEnd)
+		ReturnMessage::AddInformationSSDCallMessage1Return(AddInformationSSDExecution1FinishEnd -> AddInformationSSDCallMessage1ReturnReceivingEnd AddInformationSSDCallMessage1)
+		CallMessage::AddInformationSSDCallMessage3(insertInformation AddInformationSSDCallMessage3SendingEnd -> AddInformationSSDExecution2StartEnd)
+		ReturnMessage::AddInformationSSDCallMessage3Return(AddInformationSSDExecution2FinishEnd -> AddInformationSSDCallMessage3ReturnReceivingEnd AddInformationSSDCallMessage3)
+		CallMessage::AddInformationSSDCallMessage5(verify AddInformationSSDCallMessage5SendingEnd -> AddInformationSSDExecution3StartEnd)
+		ReturnMessage::AddInformationSSDCallMessage5Return(AddInformationSSDExecution3FinishEnd -> AddInformationSSDCallMessage5ReturnReceivingEnd AddInformationSSDCallMessage5)
+
+		Execution::AddInformationSSDExecution1(AddInformationService AddInformationSSDExecution1StartEnd AddInformationSSDExecution1FinishEnd)
+		Execution::AddInformationSSDExecution2(AddInformationService AddInformationSSDExecution2StartEnd AddInformationSSDExecution2FinishEnd)
+		Execution::AddInformationSSDExecution3(AddInformationService AddInformationSSDExecution3StartEnd AddInformationSSDExecution3FinishEnd)
+
+		MessageEnd::AddInformationSSDCallMessage1SendingEnd(Patient AddInformationSSDCallMessage1)
+		ExecutionEnd::AddInformationSSDExecution1StartEnd(AddInformationService AddInformationSSDExecution1)
+		ExecutionEnd::AddInformationSSDExecution1FinishEnd(AddInformationService AddInformationSSDExecution1)
+		MessageEnd::AddInformationSSDCallMessage1ReturnReceivingEnd(Patient AddInformationSSDCallMessage1Return)
+		MessageEnd::AddInformationSSDCallMessage3SendingEnd(Patient AddInformationSSDCallMessage3)
+		ExecutionEnd::AddInformationSSDExecution2StartEnd(AddInformationService AddInformationSSDExecution2)
+		ExecutionEnd::AddInformationSSDExecution2FinishEnd(AddInformationService AddInformationSSDExecution2)
+		MessageEnd::AddInformationSSDCallMessage3ReturnReceivingEnd(Patient AddInformationSSDCallMessage3Return)
+		MessageEnd::AddInformationSSDCallMessage5SendingEnd(Patient AddInformationSSDCallMessage5)
+		ExecutionEnd::AddInformationSSDExecution3StartEnd(AddInformationService AddInformationSSDExecution3)
+		ExecutionEnd::AddInformationSSDExecution3FinishEnd(AddInformationService AddInformationSSDExecution3)
+		MessageEnd::AddInformationSSDCallMessage5ReturnReceivingEnd(Patient AddInformationSSDCallMessage5Return)
+
+	}
+
+	Interaction TransferRequestSSD {
+
+		[Participants: Doctor TransferRequestService]
+
+		CallMessage::TransferRequestSSDCallMessage1(input TransferRequestSSDCallMessage1SendingEnd -> TransferRequestSSDExecution1StartEnd)
+		ReturnMessage::TransferRequestSSDCallMessage1Return(TransferRequestSSDExecution1FinishEnd -> TransferRequestSSDCallMessage1ReturnReceivingEnd TransferRequestSSDCallMessage1)
+		CallMessage::TransferRequestSSDCallMessage3(verifyPatient TransferRequestSSDCallMessage3SendingEnd -> TransferRequestSSDExecution2StartEnd)
+		ReturnMessage::TransferRequestSSDCallMessage3Return(TransferRequestSSDExecution2FinishEnd -> TransferRequestSSDCallMessage3ReturnReceivingEnd TransferRequestSSDCallMessage3)
+		CallMessage::TransferRequestSSDCallMessage5(send TransferRequestSSDCallMessage5SendingEnd -> TransferRequestSSDExecution3StartEnd)
+		ReturnMessage::TransferRequestSSDCallMessage5Return(TransferRequestSSDExecution3FinishEnd -> TransferRequestSSDCallMessage5ReturnReceivingEnd TransferRequestSSDCallMessage5)
+
+		Execution::TransferRequestSSDExecution1(TransferRequestService TransferRequestSSDExecution1StartEnd TransferRequestSSDExecution1FinishEnd)
+		Execution::TransferRequestSSDExecution2(TransferRequestService TransferRequestSSDExecution2StartEnd TransferRequestSSDExecution2FinishEnd)
+		Execution::TransferRequestSSDExecution3(TransferRequestService TransferRequestSSDExecution3StartEnd TransferRequestSSDExecution3FinishEnd)
+
+		MessageEnd::TransferRequestSSDCallMessage1SendingEnd(Doctor TransferRequestSSDCallMessage1)
+		ExecutionEnd::TransferRequestSSDExecution1StartEnd(TransferRequestService TransferRequestSSDExecution1)
+		ExecutionEnd::TransferRequestSSDExecution1FinishEnd(TransferRequestService TransferRequestSSDExecution1)
+		MessageEnd::TransferRequestSSDCallMessage1ReturnReceivingEnd(Doctor TransferRequestSSDCallMessage1Return)
+		MessageEnd::TransferRequestSSDCallMessage3SendingEnd(Doctor TransferRequestSSDCallMessage3)
+		ExecutionEnd::TransferRequestSSDExecution2StartEnd(TransferRequestService TransferRequestSSDExecution2)
+		ExecutionEnd::TransferRequestSSDExecution2FinishEnd(TransferRequestService TransferRequestSSDExecution2)
+		MessageEnd::TransferRequestSSDCallMessage3ReturnReceivingEnd(Doctor TransferRequestSSDCallMessage3Return)
+		MessageEnd::TransferRequestSSDCallMessage5SendingEnd(Doctor TransferRequestSSDCallMessage5)
+		ExecutionEnd::TransferRequestSSDExecution3StartEnd(TransferRequestService TransferRequestSSDExecution3)
+		ExecutionEnd::TransferRequestSSDExecution3FinishEnd(TransferRequestService TransferRequestSSDExecution3)
+		MessageEnd::TransferRequestSSDCallMessage5ReturnReceivingEnd(Doctor TransferRequestSSDCallMessage5Return)
+
+	}
+
+	Interaction TransferDataSSD {
+
+		[Participants: Doctor TransferDataService]
+
+		CallMessage::TransferDataSSDCallMessage1(verifyResearcher TransferDataSSDCallMessage1SendingEnd -> TransferDataSSDExecution1StartEnd)
+		ReturnMessage::TransferDataSSDCallMessage1Return(TransferDataSSDExecution1FinishEnd -> TransferDataSSDCallMessage1ReturnReceivingEnd TransferDataSSDCallMessage1)
+		CallMessage::TransferDataSSDCallMessage3(verifyRequest TransferDataSSDCallMessage3SendingEnd -> TransferDataSSDExecution2StartEnd)
+		ReturnMessage::TransferDataSSDCallMessage3Return(TransferDataSSDExecution2FinishEnd -> TransferDataSSDCallMessage3ReturnReceivingEnd TransferDataSSDCallMessage3)
+		CallMessage::TransferDataSSDCallMessage5(sendData TransferDataSSDCallMessage5SendingEnd -> TransferDataSSDExecution3StartEnd)
+		ReturnMessage::TransferDataSSDCallMessage5Return(TransferDataSSDExecution3FinishEnd -> TransferDataSSDCallMessage5ReturnReceivingEnd TransferDataSSDCallMessage5)
+		CallMessage::TransferDataSSDCallMessage7(verifySuccess TransferDataSSDCallMessage7SendingEnd -> TransferDataSSDExecution4StartEnd)
+		ReturnMessage::TransferDataSSDCallMessage7Return(TransferDataSSDExecution4FinishEnd -> TransferDataSSDCallMessage7ReturnReceivingEnd TransferDataSSDCallMessage7)
+
+		Execution::TransferDataSSDExecution1(TransferDataService TransferDataSSDExecution1StartEnd TransferDataSSDExecution1FinishEnd)
+		Execution::TransferDataSSDExecution2(TransferDataService TransferDataSSDExecution2StartEnd TransferDataSSDExecution2FinishEnd)
+		Execution::TransferDataSSDExecution3(TransferDataService TransferDataSSDExecution3StartEnd TransferDataSSDExecution3FinishEnd)
+		Execution::TransferDataSSDExecution4(TransferDataService TransferDataSSDExecution4StartEnd TransferDataSSDExecution4FinishEnd)
+
+		MessageEnd::TransferDataSSDCallMessage1SendingEnd(Doctor TransferDataSSDCallMessage1)
+		ExecutionEnd::TransferDataSSDExecution1StartEnd(TransferDataService TransferDataSSDExecution1)
+		ExecutionEnd::TransferDataSSDExecution1FinishEnd(TransferDataService TransferDataSSDExecution1)
+		MessageEnd::TransferDataSSDCallMessage1ReturnReceivingEnd(Doctor TransferDataSSDCallMessage1Return)
+		MessageEnd::TransferDataSSDCallMessage3SendingEnd(Doctor TransferDataSSDCallMessage3)
+		ExecutionEnd::TransferDataSSDExecution2StartEnd(TransferDataService TransferDataSSDExecution2)
+		ExecutionEnd::TransferDataSSDExecution2FinishEnd(TransferDataService TransferDataSSDExecution2)
+		MessageEnd::TransferDataSSDCallMessage3ReturnReceivingEnd(Doctor TransferDataSSDCallMessage3Return)
+		MessageEnd::TransferDataSSDCallMessage5SendingEnd(Doctor TransferDataSSDCallMessage5)
+		ExecutionEnd::TransferDataSSDExecution3StartEnd(TransferDataService TransferDataSSDExecution3)
+		ExecutionEnd::TransferDataSSDExecution3FinishEnd(TransferDataService TransferDataSSDExecution3)
+		MessageEnd::TransferDataSSDCallMessage5ReturnReceivingEnd(Doctor TransferDataSSDCallMessage5Return)
+		MessageEnd::TransferDataSSDCallMessage7SendingEnd(Doctor TransferDataSSDCallMessage7)
+		ExecutionEnd::TransferDataSSDExecution4StartEnd(TransferDataService TransferDataSSDExecution4)
+		ExecutionEnd::TransferDataSSDExecution4FinishEnd(TransferDataService TransferDataSSDExecution4)
+		MessageEnd::TransferDataSSDCallMessage7ReturnReceivingEnd(Doctor TransferDataSSDCallMessage7Return)
+
+	}
+
+	Service EHRSystem {
+
+	}
+
+	Service ThirdPartyServices {
+
+	}
+
+	Service LoginService {
+
+		[Operation]
+		inputUsername(username)
+		inputPassword(password)
+
+	}
+
+	Service AddInformationService {
+
+		[Operation]
+		chooseRole()
+		insertInformation()
+		verify()
+
+	}
+
+	Service TransferRequestService {
+
+		[Operation]
+		login(username, password)
+		inputRequest()
+		input()
+		verifyPatient()
+		send()
+
+	}
+
+	Service TransferDataService {
+
+		[Operation]
+		verifyResearcher()
+		verifyRequest()
+		sendData()
+		verifySuccess()
+
+	}
+
+}
+
+DomainModel EHR {
+
+	Entity Request {
+		ID : String
+		Content : String
+		Get : String
+		Send : String
+
+		[Refer]
+		RequesttoUser : User Association
+	}
+
+	Entity CollectRequest extends Request {
+		[Refer]
+		CollectRequesttoResearchers : Researchers Association
+	}
+
+	Entity TransferRequest extends Request {
+		[Refer]
+		TransferRequesttoPatient : Patient Association
+	}
+
+	Entity User {
+		Username : String
+		Password : String
+
+		[Refer]
+		UsertoRequest : Request* ! Association
+	}
+
+	Entity Patient extends User {
+		[Refer]
+		PatienttoTransferRequest : TransferRequest* ! Association
+	}
+
+	Entity Doctor extends User {
+		[Refer]
+		DoctortoTargetPartyCatalog : TargetPartyCatalog* ! Aggregation
+	}
+
+	Entity Researchers extends User {
+		[Refer]
+		ResearcherstoCollectRequest : CollectRequest* ! Association
+		ResearcherstoTargetPartyCatalog : TargetPartyCatalog* ! Association
+	}
+
+	Entity TargetPartyCatalog {
+		Name : String
+		Address : String
+		Licence : String
+
+		[Refer]
+		TargetPartyCatalogtoResearchers : Researchers Association
+		TargetPartyCatalogtoDoctor : Doctor Association
+	}
+
+}
+
