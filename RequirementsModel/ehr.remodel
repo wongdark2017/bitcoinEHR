@@ -182,6 +182,135 @@ UseCaseModel EHR {
 		verifySuccess()
 
 	}
+	Contract EHRSystem::inputUsername(username :String) : Boolean {
+
+	/* definition skeleton */
+	definition:
+		user:User = User.allInstance()->any(u:User | u.Username = username)
+
+	/* precondition: skeleton */
+	precondition:
+		true
+
+	/* postcondition: skeleton */
+	postcondition:
+		if
+			(bc.oclIsUndefined() = false)
+		then
+			self.CardIDValidated = true and
+			self.inputUsername = u and
+			result = true
+		else
+			self.UsernameValidation = false and
+			result = false
+		endif
+}
+
+Contract EHRSystem::inputPassword(password : String) : Boolean {
+
+	/* precondition: skeleton */
+	precondition:
+		self.User = true and
+		self.inputPassword.oclIsUndefined() = false
+
+	/* postcondition: skeleton */
+	postcondition:
+		if
+			self.Info.Password = password
+		then
+			self.PasswordValidated = true and
+			return = true
+		else
+			self.PasswordValidated = false and
+			return = false
+		endif
+}
+
+Contract EHRSystem::input(){
+	precondition:
+		self.input.oclIsUndefined()=false
+	postcondition:
+		return true
+}
+
+
+Contract EHRSystem::verifyPatient(){
+	precondition:
+		self.verifyPatient.oclIsUndefined()=false
+	postcondition:
+		return true
+}
+
+Contract EHRSystem::send(){
+	precondition:
+		self.send.oclIsUndefined()=false
+	postcondition:
+		return true
+}
+
+Contract EHRSystem::chooseRole(){
+	precondition:
+		self.chooseRole.oclIsUndefined()=false
+	postcondition:
+		return true
+}
+
+Contract EHRSystem::insertInformation(){
+	precondition:
+	self.insertInformation().oclIsUndefined()=false
+	postcondition:
+	return true
+}
+
+Contract EHRSystem::verify(){
+	precondition:
+	self.verify().oclIsUndefined()=false
+	postcondition:
+	return true
+}
+Contract EHRSystem::verifyResearcher(){
+	precondition:
+	self.verifyResearcher().oclIsUndefined()=false
+	postcondition:
+	return true
+}
+
+Contract EHRSystem::verifyResearcher(){
+	precondition:
+	self.verifyResearcher().oclIsUndefined()=false
+	postcondition:
+	return true
+}
+Contract EHRSystem::verifyResearcher(){
+	precondition:
+	self.verifyResearcher().oclIsUndefined()=false
+	postcondition:
+	return true
+}
+
+Contract EHRSystem::verifyRequest(){
+	precondition:
+	self.verifyRequest().oclIsUndefined()=false
+	postcondition:
+	return true
+}
+
+Contract EHRSystem::sendData(){
+	precondition:
+	self.sendData().oclIsUndefined()=false
+	postcondition:
+	return true
+}
+
+Contract EHRSystem::verifySuccess(){
+	precondition:
+	self.verifySuccess().oclIsUndefined()=false
+	postcondition:
+	return true
+}
+
+
+
 
 }
 
@@ -240,6 +369,29 @@ DomainModel EHR {
 		TargetPartyCatalogtoResearchers : Researchers Association
 		TargetPartyCatalogtoDoctor : Doctor Association
 	}
+
+}
+
+Refer]
+		DoctortoTargetPartyCatalog : TargetPartyCatalog* ! Aggregation
+	}
+
+	Entity Researchers extends User {
+		[Refer]
+		ResearcherstoCollectRequest : CollectRequest* ! Association
+		ResearcherstoTargetPartyCatalog : TargetPartyCatalog* ! Association
+	}
+
+	Entity TargetPartyCatalog {
+		Name : String
+		Address : String
+		Licence : String
+
+		[Refer]
+		TargetPartyCatalogtoResearchers : Researchers Association
+		TargetPartyCatalogtoDoctor : Doctor Association
+	}
+
 
 }
 
