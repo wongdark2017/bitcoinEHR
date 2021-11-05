@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/Summery/src-gen" creationIcons="false" editDirectory="/Summery.edit/src-gen"
+    editorDirectory="/Summery.editor/src-gen" modelPluginID="Summery" modelName="Summery"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>summery.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Summery" disposableProviderFactory="true" ecorePackage="summery.ecore#/">
+    <genClasses ecoreClass="summery.ecore#//ArchitecturalDescription">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute summery.ecore#//ArchitecturalDescription/approvalAuthority"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute summery.ecore#//ArchitecturalDescription/architect"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute summery.ecore#//ArchitecturalDescription/assumptionAndConstraint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute summery.ecore#//ArchitecturalDescription/creatingOrganization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute summery.ecore#//ArchitecturalDescription/dateComplete"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute summery.ecore#//ArchitecturalDescription/purpose"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute summery.ecore#//ArchitecturalDescription/recommendations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute summery.ecore#//ArchitecturalDescription/summaryOfFindings"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute summery.ecore#//ArchitecturalDescription/toolsUsed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute summery.ecore#//ArchitecturalDescription/toBe"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute summery.ecore#//ArchitecturalDescription/methodlogyUsed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute summery.ecore#//ArchitecturalDescription/status"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute summery.ecore#//ArchitecturalDescription/version"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference summery.ecore#//ArchitecturalDescription/view"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference summery.ecore#//ArchitecturalDescription/viewpoint"/>
+    </genClasses>
+    <genClasses ecoreClass="summery.ecore#//Architecture">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference summery.ecore#//Architecture/architecturaldescription"/>
+    </genClasses>
+    <genClasses ecoreClass="summery.ecore#//Concern"/>
+    <genClasses ecoreClass="summery.ecore#//Stakeholder">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference summery.ecore#//Stakeholder/concern"/>
+    </genClasses>
+    <genClasses ecoreClass="summery.ecore#//Viewpoint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference summery.ecore#//Viewpoint/stakeholder"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference summery.ecore#//Viewpoint/concern"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute summery.ecore#//Viewpoint/language"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute summery.ecore#//Viewpoint/method"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute summery.ecore#//Viewpoint/purpose"/>
+    </genClasses>
+    <genClasses ecoreClass="summery.ecore#//View">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference summery.ecore#//View/viewpoint"/>
+    </genClasses>
+    <genClasses ecoreClass="summery.ecore#//UAFElent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute summery.ecore#//UAFElent/URl"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

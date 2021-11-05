@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="parameters" nsURI="http://www.example.org/parameters" nsPrefix="parameters">
+  <eClassifiers xsi:type="ecore:EClass" name="ActualPropertySet"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InstanceSepection"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ActualCondition" eSuperTypes="#//ActualPropertySet">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instancesepection" upperBound="-1"
+        eType="#//InstanceSepection" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Condition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActualResource">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actualcondition" eType="#//ActualCondition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Activity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actualcondition" eType="#//ActualCondition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Mesurement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actualcondition" eType="#//ActualCondition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActualEnvironment" eSuperTypes="#//ActualCondition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instancesepection" upperBound="-1"
+        eType="#//InstanceSepection" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="environment" eType="#//Environment"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActualLocation" eSuperTypes="#//ActualCondition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instancesepection" upperBound="-1"
+        eType="#//InstanceSepection" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" eType="#//Location"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="locationkind" eType="#//LocationKind"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LocationHolder">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actualenvironment" eType="#//ActualEnvironment"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actuallocation" eType="#//ActualLocation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Environment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Location"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LocationKind"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ActualMeasurement" eSuperTypes="#//ActualState">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actualpropertyset" eType="#//ActualPropertySet"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="measurement" eType="#//Measurement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="slot" upperBound="-1" eType="#//Slot"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Slot"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Measurement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ActualState"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="ActualMeasurementKid"/>
+</ecore:EPackage>

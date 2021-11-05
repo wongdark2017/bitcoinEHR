@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/Parameters/src-gen" creationIcons="false" editDirectory="/Parameters.edit/src-gen"
+    editorDirectory="/Parameters.editor/src-gen" modelPluginID="Parameters" modelName="Parameters"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>parameters.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Parameters" disposableProviderFactory="true" ecorePackage="parameters.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="parameters.ecore#//ActualMeasurementKid"/>
+    <genClasses ecoreClass="parameters.ecore#//ActualPropertySet"/>
+    <genClasses ecoreClass="parameters.ecore#//InstanceSepection"/>
+    <genClasses ecoreClass="parameters.ecore#//ActualCondition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference parameters.ecore#//ActualCondition/instancesepection"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference parameters.ecore#//ActualCondition/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="parameters.ecore#//ActualResource">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference parameters.ecore#//ActualResource/actualcondition"/>
+    </genClasses>
+    <genClasses ecoreClass="parameters.ecore#//Activity">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference parameters.ecore#//Activity/actualcondition"/>
+    </genClasses>
+    <genClasses ecoreClass="parameters.ecore#//Condition"/>
+    <genClasses ecoreClass="parameters.ecore#//Mesurement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference parameters.ecore#//Mesurement/actualcondition"/>
+    </genClasses>
+    <genClasses ecoreClass="parameters.ecore#//ActualEnvironment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference parameters.ecore#//ActualEnvironment/instancesepection"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference parameters.ecore#//ActualEnvironment/environment"/>
+    </genClasses>
+    <genClasses ecoreClass="parameters.ecore#//ActualLocation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference parameters.ecore#//ActualLocation/instancesepection"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference parameters.ecore#//ActualLocation/location"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference parameters.ecore#//ActualLocation/locationkind"/>
+    </genClasses>
+    <genClasses ecoreClass="parameters.ecore#//LocationHolder">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference parameters.ecore#//LocationHolder/actualenvironment"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference parameters.ecore#//LocationHolder/actuallocation"/>
+    </genClasses>
+    <genClasses ecoreClass="parameters.ecore#//Environment"/>
+    <genClasses ecoreClass="parameters.ecore#//Location"/>
+    <genClasses ecoreClass="parameters.ecore#//LocationKind"/>
+    <genClasses ecoreClass="parameters.ecore#//ActualMeasurement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference parameters.ecore#//ActualMeasurement/actualpropertyset"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference parameters.ecore#//ActualMeasurement/measurement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference parameters.ecore#//ActualMeasurement/slot"/>
+    </genClasses>
+    <genClasses ecoreClass="parameters.ecore#//Slot"/>
+    <genClasses ecoreClass="parameters.ecore#//Measurement"/>
+    <genClasses ecoreClass="parameters.ecore#//ActualState"/>
+  </genPackages>
+</genmodel:GenModel>
