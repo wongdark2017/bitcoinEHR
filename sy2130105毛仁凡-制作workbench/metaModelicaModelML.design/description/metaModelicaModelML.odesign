@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="metaModelicaModelML" version="12.0.0.2017041100">
+  <ownedViewpoints name="models">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" domainClass="metaModelicaML::ModelicaModel" enablePopupBars="true">
+      <metamodel href="http://www.example.org/metaModelicaML#/"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="model" domainClass="metaModelicaML::ModelicaModel">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="port" domainClass="metaModelicaML::port">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="condition" domainClass="metaModelicaML::condition">
+          <style xsi:type="style:LozengeNodeDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="parameter" domainClass="metaModelicaML::parameter">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="equation" domainClass="metaModelicaML::equation">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="connect" domainClass="metaModelicaML::connect">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="port" sourceMapping="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='model']" targetMapping="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='port']" targetFinderExpression="feature:port">
+          <style sizeComputationExpression="2" routingStyle="manhattan">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="constraint" sourceMapping="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='model']" targetMapping="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='condition'] //@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='connect'] //@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='equation']" targetFinderExpression="feature:constraint">
+          <style sizeComputationExpression="2" routingStyle="manhattan">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="variable" sourceMapping="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='equation']" targetMapping="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='parameter']" targetFinderExpression="feature:variable">
+          <style lineStyle="dash" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="criterion" sourceMapping="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='condition']" targetMapping="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='parameter']" targetFinderExpression="feature:criterion">
+          <style sizeComputationExpression="2" routingStyle="tree">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="parameterized" sourceMapping="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='model']" targetMapping="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='parameter']" targetFinderExpression="feature:parameter">
+          <style sizeComputationExpression="2" routingStyle="tree">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="connected" sourceMapping="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='port']" targetMapping="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='parameter']" targetFinderExpression="feature:connected">
+          <style sourceArrow="InputArrow" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="connectedPort" sourceMapping="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='connect']" targetMapping="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='port']" targetFinderExpression="feature:port">
+          <style sourceArrow="InputArrow" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="do" sourceMapping="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='condition']" targetMapping="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='connect']" targetFinderExpression="feature:do">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="else" sourceMapping="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='condition']" targetMapping="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='connect']" targetFinderExpression="feature:else">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <toolSections name="model">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createModel" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='model']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metaModelicaML::ModelicaModel" referenceName="component"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createParameter" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='parameter']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metaModelicaML::PhysicsQuantity" referenceName="parameter"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="constraint">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="equation" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='equation']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metaModelicaML::equation" referenceName="constraint"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="equ2var" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='variable']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="variable" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Constraint" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='constraint']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="constraint" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="port">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="hasPort" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='port']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="port" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createPort" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='port']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metaModelicaML::port" referenceName="port"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createConnected" label="connected" precondition="metaModelicaML::parameter" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='connected']" connectionStartPrecondition="metaModelicaML::port">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="connected" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="connect">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createParameterized" label="parameter" precondition="metaModelicaML::parameter" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='parameterized']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="parameter" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="connectPort" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='connectedPort']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="port" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createConnect" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='connect']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metaModelicaML::connect" referenceName="constraint"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="condition">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createCondition" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@nodeMappings[name='condition']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metaModelicaML::condition" referenceName="constraint"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="do" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='do']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="do" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="else" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='else']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="else" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="criterion" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='models']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='criterion']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="criterion" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="metaModelicaModelML.design.Services"/>
+  </ownedViewpoints>
+</description:Group>
