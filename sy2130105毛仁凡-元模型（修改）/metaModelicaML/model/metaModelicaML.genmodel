@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/metaModelicaML/src-gen" creationIcons="false"
+    editDirectory="/metaModelicaML.edit/src-gen" editorDirectory="/metaModelicaML.editor/src-gen"
+    modelPluginID="metaModelicaML" modelName="MetaModelicaML" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>metaModelicaML.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="MetaModelicaML" disposableProviderFactory="true" ecorePackage="metaModelicaML.ecore#/">
+    <genClasses ecoreClass="metaModelicaML.ecore#//ModelicaModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModelicaML.ecore#//ModelicaModel/constraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModelicaML.ecore#//ModelicaModel/component"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModelicaML.ecore#//ModelicaModel/extend"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModelicaML.ecore#//ModelicaModel/prototype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModelicaML.ecore#//ModelicaModel/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModelicaML.ecore#//ModelicaModel/parameter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metaModelicaML.ecore#//ModelicaModel/port"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModelicaML.ecore#//constraint"/>
+    <genClasses ecoreClass="metaModelicaML.ecore#//ModelicaBool"/>
+    <genClasses ecoreClass="metaModelicaML.ecore#//ModelicaInt"/>
+    <genClasses ecoreClass="metaModelicaML.ecore#//ModelicaReal"/>
+    <genClasses ecoreClass="metaModelicaML.ecore#//ModelicaComplex"/>
+    <genClasses ecoreClass="metaModelicaML.ecore#//Variable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModelicaML.ecore#//Variable/variableType"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModelicaML.ecore#//PhysicsQuantity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModelicaML.ecore#//PhysicsQuantity/physicsProperty"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModelicaML.ecore#//parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModelicaML.ecore#//parameter/name"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModelicaML.ecore#//Expression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModelicaML.ecore#//Expression/name"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModelicaML.ecore#//connect">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModelicaML.ecore#//connect/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModelicaML.ecore#//connect/port"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModelicaML.ecore#//port">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metaModelicaML.ecore#//port/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModelicaML.ecore#//port/connected"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModelicaML.ecore#//equation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModelicaML.ecore#//equation/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="metaModelicaML.ecore#//condition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModelicaML.ecore#//condition/criterion"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModelicaML.ecore#//condition/do"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metaModelicaML.ecore#//condition/else"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
