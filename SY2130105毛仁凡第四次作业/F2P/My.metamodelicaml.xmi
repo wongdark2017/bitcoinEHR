@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metaModelicaML:ModelicaModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metaModelicaML="http://www.example.org/metaModelicaML">
+  <constraint xsi:type="metaModelicaML:connect" port="//@component.2/@port.1 //@component.1/@port.1"/>
+  <constraint xsi:type="metaModelicaML:connect" port="//@component.2/@port.1 //@component.0/@port.1"/>
+  <component name="R1">
+    <constraint xsi:type="metaModelicaML:equation" name="Ohm's law" variable="//@component.0/@parameter.0 //@component.0/@parameter.1 //@component.0/@parameter.2 //@component.0/@parameter.3"/>
+    <parameter xsi:type="metaModelicaML:PhysicsQuantity" name="i" physicsProperty="current"/>
+    <parameter xsi:type="metaModelicaML:PhysicsQuantity" name="vin" physicsProperty="voltage"/>
+    <parameter xsi:type="metaModelicaML:ModelicaReal" name="resistance1"/>
+    <parameter xsi:type="metaModelicaML:PhysicsQuantity" name="vout" physicsProperty="voltage"/>
+    <port name="Pin" connected="//@component.0/@parameter.1 //@component.0/@parameter.0"/>
+    <port name="Pout" connected="//@component.0/@parameter.0 //@component.0/@parameter.3"/>
+  </component>
+  <component name="R2">
+    <constraint xsi:type="metaModelicaML:equation" name="Ohm's law" variable="//@component.1/@parameter.0 //@component.1/@parameter.1 //@component.1/@parameter.2 //@component.1/@parameter.3"/>
+    <parameter xsi:type="metaModelicaML:PhysicsQuantity" name="i" physicsProperty="current"/>
+    <parameter xsi:type="metaModelicaML:PhysicsQuantity" name="vin" physicsProperty="voltage"/>
+    <parameter xsi:type="metaModelicaML:ModelicaReal" name="resistance2"/>
+    <parameter xsi:type="metaModelicaML:PhysicsQuantity" name="vout" physicsProperty="voltage"/>
+    <port name="Pin" connected="//@component.1/@parameter.1 //@component.1/@parameter.0"/>
+    <port name="Pout" connected="//@component.1/@parameter.0 //@component.1/@parameter.3"/>
+  </component>
+  <component name="Power">
+    <constraint xsi:type="metaModelicaML:equation" name="ConstantVoltage" variable="//@component.2/@parameter.1"/>
+    <constraint xsi:type="metaModelicaML:condition" name="timeSwitch" criterion="//@parameter.0" do="//@constraint.0" else="//@constraint.1"/>
+    <parameter xsi:type="metaModelicaML:PhysicsQuantity" name="i" physicsProperty="current"/>
+    <parameter xsi:type="metaModelicaML:PhysicsQuantity" name="v" physicsProperty="voltage"/>
+    <port name="Pin" connected="//@component.2/@parameter.0"/>
+    <port name="Pout" connected="//@component.2/@parameter.1 //@component.2/@parameter.0"/>
+  </component>
+  <component name="R3">
+    <constraint xsi:type="metaModelicaML:equation" name="OhmLaw" variable="//@component.3/@parameter.0 //@component.3/@parameter.1 //@component.3/@parameter.2 //@component.3/@parameter.3"/>
+    <parameter xsi:type="metaModelicaML:PhysicsQuantity" name="vin"/>
+    <parameter xsi:type="metaModelicaML:PhysicsQuantity" name="i"/>
+    <parameter xsi:type="metaModelicaML:PhysicsQuantity" name="r3"/>
+    <parameter xsi:type="metaModelicaML:PhysicsQuantity" name="vout"/>
+    <port name="Pout" connected="//@component.3/@parameter.3 //@component.3/@parameter.1"/>
+    <port name="Pin"/>
+  </component>
+  <parameter xsi:type="metaModelicaML:PhysicsQuantity" name="t" physicsProperty="time"/>
+</metaModelicaML:ModelicaModel>
