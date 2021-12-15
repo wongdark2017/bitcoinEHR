@@ -6,16 +6,16 @@
 
 输入端元模型
 
-![image-20211216021322591](C:\Users\BestWinner\AppData\Roaming\Typora\typora-user-images\image-20211216021322591.png)
+![image-20211216021322591](Readme.assets/image-20211216021322591.png)
 
 输出端元模型
 
-![image-20211216021105378](C:\Users\BestWinner\AppData\Roaming\Typora\typora-user-images\image-20211216021105378.png)
+![image-20211216021105378](Readme.assets/image-20211216021105378.png)
 
 输入模型
 
-![image-20211216021539548](C:\Users\BestWinner\AppData\Roaming\Typora\typora-user-images\image-20211216021539548.png)
+![image-20211216021539548](Readme.assets/image-20211216021539548.png)
 
 输出模型
 
-![image-20211216021220722](C:\Users\BestWinner\AppData\Roaming\Typora\typora-user-images\image-20211216021220722.png)
+![image-20211216021220722](Readme.assets/image-20211216021220722.png)
