@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="metaModelicaML" nsURI="http://www.example.org/metaModelicaML"
+    nsPrefix="metaModelicaML">
+  <eClassifiers xsi:type="ecore:EClass" name="ModelicaModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" upperBound="-1"
+        eType="#//constraint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" upperBound="-1"
+        eType="#//ModelicaModel" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extend" upperBound="-1"
+        eType="#//ModelicaModel" eOpposite="#//ModelicaModel/prototype"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prototype" upperBound="-1"
+        eType="#//ModelicaModel" eOpposite="#//ModelicaModel/extend"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" upperBound="-1"
+        eType="#//parameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="port" upperBound="-1" eType="#//port"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="constraint" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelicaBool" eSuperTypes="#//Variable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelicaInt" eSuperTypes="#//Variable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelicaReal" eSuperTypes="#//Variable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelicaComplex" eSuperTypes="#//Variable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//parameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="variableType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PhysicsQuantity" eSuperTypes="#//parameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="physicsProperty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="parameter" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true" eSuperTypes="#//constraint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="connect" eSuperTypes="#//constraint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="port" upperBound="2" eType="#//port"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="port">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connected" upperBound="-1"
+        eType="#//parameter"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="equation" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" upperBound="-1"
+        eType="#//parameter"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="condition" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="criterion" eType="#//parameter"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="do" eType="#//constraint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="else" eType="#//constraint"/>
+  </eClassifiers>
+</ecore:EPackage>

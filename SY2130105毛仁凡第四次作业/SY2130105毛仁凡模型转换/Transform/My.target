@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="TargetModel">
+  <Class>
+    <links linked="/3/@vars.0 /3/@vars.1 /2/@vars.0 /2/@vars.1"/>
+    <links linked="/3/@vars.2 /3/@vars.3 /1/@vars.0 /1/@vars.1"/>
+    <vars name="t"/>
+  </Class>
+  <Class name="R1">
+    <vars name="i"/>
+    <vars name="vout"/>
+    <vars name="i"/>
+    <vars name="vin"/>
+    <vars name="resistance1"/>
+    <vars name="vout"/>
+  </Class>
+  <Class name="R2">
+    <vars name="i"/>
+    <vars name="vout"/>
+    <vars name="i"/>
+    <vars name="vin"/>
+    <vars name="resistance2"/>
+    <vars name="vout"/>
+  </Class>
+  <Class name="Power">
+    <vars name="v"/>
+    <vars name="i"/>
+    <vars name="v"/>
+    <vars name="i"/>
+    <vars name="i"/>
+    <vars name="v"/>
+  </Class>
+  <Class name="R3">
+    <vars name="vin"/>
+    <vars name="i"/>
+    <vars name="r3"/>
+    <vars name="vout"/>
+  </Class>
+</xmi:XMI>
