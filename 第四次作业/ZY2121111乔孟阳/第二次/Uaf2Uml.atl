@@ -1,0 +1,25 @@
+module Uaf2Uml;
+-- @path Model=/Uaf2Uml/Uaf.ecore 
+-- @path Uaf=/Uaf2Uml/Model.ecore
+create OUT: Model from IN: Uaf;
+
+rule Dictionsry2Class {
+	from
+		s: Uaf!Dictionary
+	to
+		t: Model!Class (
+			name <- s.alias.nameOwner->
+				collect(u | thisModule.getu(u)) 
+				+ s.defination.author -> 
+				collect(u | thisModule.getu(u))
+				
+				)
+}
+lazy rule getu {
+	from
+		s: Uaf!UAFElement
+	to
+		t: Model!relation (
+			name <- s.URI
+		)
+}

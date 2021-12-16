@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Uaf">
+  <eClassifiers xsi:type="ecore:EClass" name="UAF">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dictionary" lowerBound="1"
+        eType="#//Dictionary"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Dictionary">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="alias" lowerBound="1" upperBound="-1"
+        eType="#//Alias"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sameas" lowerBound="1"
+        upperBound="-1" eType="#//Sameas"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defination" lowerBound="1"
+        eType="#//Defination"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Summary">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="uafelement" lowerBound="1"
+        eType="#//UAFElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UAFElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="URI" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Alias">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameOwner" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="uafelement" lowerBound="1"
+        upperBound="-1" eType="#//UAFElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sameas">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="uafelement" lowerBound="1"
+        upperBound="-1" eType="#//UAFElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Defination">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="uafelement" lowerBound="1"
+        upperBound="-1" eType="#//UAFElement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="author" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>
