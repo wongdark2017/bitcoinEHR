@@ -1,0 +1,42 @@
+module transform;
+-- @path metaModelicaML=/Transform/metaModelicaML.ecore
+-- @path TargetModel=/Transform/Target.ecore
+create OUT: TargetModel from IN: metaModelicaML;
+
+
+rule model2class {
+	from
+		s: metaModelicaML!ModelicaModel
+	to
+		t: TargetModel!Class (
+			name <- s.name,
+			
+			vars <- s.parameter->
+				collect(var | thisModule.para2val(var)),
+				
+			links <- s.constraint->
+			select(c | c.oclIsTypeOf(metaModelicaML!connect))
+				->collect(c | thisModule.con2lik(c))
+		)
+}
+
+lazy rule para2val {
+	from
+		s: metaModelicaML!parameter
+	to
+		t: TargetModel!vari (
+			name <- s.name,
+			
+			belongTo <- metaModelicaML!ModelicaModel.allInstances()
+				->select(m | m.parameter -> exists(p | p=s))
+		)
+}
+
+lazy rule con2lik {
+	from
+		s: metaModelicaML!connect
+	to
+		t: TargetModel!link (
+			linked <- s.port ->collect(p | p.connected ->collect(v | thisModule.para2val(v)))
+		)
+}
