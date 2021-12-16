@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<occi:Extension xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:occi="http://schemas.ogf.org/occi" name="Erocci Extension" scheme="http://occiware.org/erocci#">
+  <import href="../extensions/Core.xmi#/"/>
+  <kinds term="component" scheme="http://occiware.org/erocci#" title="Erocci component">
+    <parent href="../extensions/Core.xmi#//@kinds[term='resource']"/>
+  </kinds>
+  <kinds term="listener" scheme="http://occiware.org/erocci#" title="Erocci Listener" parent="//@kinds[term='component']">
+    <attributes name="port" required="true" description="IP port where the frontend waits for requests">
+      <type href="../OCCI.ecore#//Number"/>
+    </attributes>
+  </kinds>
+
+</occi:Extension>
