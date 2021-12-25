@@ -1,0 +1,32 @@
+create target : MetaModeloUML refining source : MetaModeloUML;
+
+helper context String def : toU1Case : String = 
+	if self.size() > 0 
+		then self.substring(1,1).toUpper() + self.substring(2,self.size()) 
+ 		else self 
+	endif;
+
+rule Property {
+	from
+		publicAttribute : MetaModeloUML!Property (
+			publicAttribute.visibility = #public and publicAttribute.association.oclIsUndefined()
+		)
+	to
+		privateAttribute : MetaModeloUML!Property (
+			visibility <- #private
+		),
+		getter : MetaModeloUML!Operation (
+			name <- 'get'+publicAttribute.name.toU1Case,
+			class <- publicAttribute.refImmediateComposite(),
+			type <- publicAttribute.type
+		),
+		setter : MetaModeloUML!Operation (
+			name <- 'set'+publicAttribute.name.toU1Case,
+			class <- publicAttribute.refImmediateComposite(),
+			ownedParameter <- setterParam
+		),
+		setterParam : MetaModeloUML!Parameter (
+			name <- publicAttribute.name,
+			type <- publicAttribute.type
+		)
+}
